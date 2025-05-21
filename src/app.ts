@@ -1,5 +1,34 @@
 import { Invoice } from './classes/Invoice.js';
 
+
+// interfaces
+interface IsPerson {
+    name: string;
+    age: number;
+
+    speak(a: string): void;
+    spend(a: number): number;
+}
+
+const me: IsPerson = {
+    name: 'Mario',
+    age: 30,
+    speak(text: string): void {
+        console.log(text);
+    },
+    spend(amount: number): number {
+        console.log('I spent', amount);
+        return amount;
+    }
+};
+
+console.log(me);
+
+const greet = (person: IsPerson) => {
+    console.log('Hello', person.name);
+};
+greet(me);
+
 const invOne = new Invoice('Mario', 'work on the mario website', 250);
 const invTwo = new Invoice('Luigi', 'work on the luigi website', 300);
 let invoices: Invoice[] = [];
