@@ -1,14 +1,16 @@
 class Invoice {
-    clinet: string;
-    details: string;
-    amount: number;
-    constructor(c: string, d: string, a: number) {
-        this.clinet = c;
-        this.details = d;
-        this.amount = a;
-    }
+    // readonly client: string;
+    // private details: string;
+    // public amount: number;
+    constructor(
+        readonly client: string,
+        private details: string,
+        public amount: number,
+    ) {}
+        
+    
     format() {
-        return `${this.clinet} owes $${this.amount} for ${this.details}`;
+        return `${this.client} owes $${this.amount} for ${this.details}`;
     }
 }
 
@@ -17,10 +19,14 @@ const invTwo = new Invoice('Luigi', 'work on the luigi website', 300);
 let invoices: Invoice[] = [];
 invoices.push(invOne);
 invoices.push(invTwo);
-console.log(invoices);
-invOne.clinet = 'Yoshi';
-invTwo.amount = 500;
-console.log(invoices);
+
+
+invoices.forEach((inv) => {
+    console.log(inv.client, inv.amount, inv.format());
+})
+
+
+
 const form = document.querySelector('.new-item-form')! as HTMLFormElement;
 
 console.log(form.children);
