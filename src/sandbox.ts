@@ -1,17 +1,14 @@
-let greet: Function;
-greet =() => {
-    console.log("Hello, world!");
-}
-const add = (a:number, b:number, c?:number|string) => {
-    console.log(a + b);
-    console.log(c);
+type StringOrNum = string | number;
+type ObjWithName = { name: string, uid: StringOrNum };
+
+const logDetails = (uid : string | number, item: { name: string }) => {
+  console.log(`A product with UID: ${uid} has a name of ${item.name}`);
 }
 
-add(5, 10, "20");
-
-const minus = (a:number, b:number):number => {
-    return a - b;
+const greet = (user: ObjWithName) => {
+  console.log(`Hello ${user.name}, your UID is ${user.uid}`);
 }
 
-let result = minus(10, 7);
-console.log(result);
+const greetAgain = (user: ObjWithName) => {
+  console.log(`Hello again ${user.name}!`);
+}
