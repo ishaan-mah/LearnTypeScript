@@ -1,14 +1,19 @@
-type StringOrNum = string | number;
-type ObjWithName = { name: string, uid: StringOrNum };
+let greet: (a: string, b:string) => void;
+greet = (name: string, greeting: string) => {
+    console.log(`${name} says ${greeting}`);
+};
 
-const logDetails = (uid : string | number, item: { name: string }) => {
-  console.log(`A product with UID: ${uid} has a name of ${item.name}`);
+let calc: (a: number, b: number, c: string) => number;
+calc = (numOne: number, numTwo: number, action: string) => {
+    if (action === "add") {
+        return numOne + numTwo;
+    } else  {
+        return numOne - numTwo;
+    }
 }
 
-const greet = (user: ObjWithName) => {
-  console.log(`Hello ${user.name}, your UID is ${user.uid}`);
-}
+let logDetails: (obj: {name: string, age: number}) => void;
 
-const greetAgain = (user: ObjWithName) => {
-  console.log(`Hello again ${user.name}!`);
+logDetails = (ninja: {name: string, age: number}) => {
+  console.log(`${ninja.name} is ${ninja.age} years old`);
 }
