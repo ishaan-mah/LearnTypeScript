@@ -1,6 +1,6 @@
 import { Invoice } from './classes/Invoice.js';
 import { Payment } from './classes/Payment.js';
-import { HasFormatter } from './interfaces/HasFormatter.js';
+import { HasFormatter } from './Interfaces/HasFormatter.js';
 
 // let docOne: HasFormatter;
 // let docTwo: HasFormatter;
